@@ -1,10 +1,10 @@
 on:
   workflow_dispatch:
 
-name: Azure ARM
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    name: Azure ARM
     steps:
 
     - uses: actions/checkout@main
