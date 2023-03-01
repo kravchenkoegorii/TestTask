@@ -24,7 +24,7 @@ namespace TestTask.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connString = Configuration.GetConnectionString("ConnString");
+            var connString = Configuration.GetValue<string>("ConnectionString");
 
             services.AddDbContext<TestTaskDbContext>(opt => opt.UseSqlServer(connString));
 
