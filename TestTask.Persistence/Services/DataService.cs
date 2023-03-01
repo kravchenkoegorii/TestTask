@@ -32,17 +32,18 @@ namespace TestTask.Persistence.Services
                 .ToListAsync();
         }
 
-        public async Task<ICollection<Student>> GetAllUsingDapper()
+        public async Task<ICollection<Professor>> GetAllUsingDapper()
         {
             var connString = _configuration.GetConnectionString("ConnString");
             using IDbConnection db = new SqlConnection(connString);
 
-            var sqlQuery = "SELECT p.Id, p.[Name], p.Surname, s.Id, s.[Name], s.Surname, s.[Group] " +
-                "FROM Professors as p " +
-                "LEFT JOIN Students AS s " +
-                "ON p.Id = s.ProfessorId";
+            var sqlQuery = "SELECT [p].[Id], [p].[Name], [p].[SubjectName], [p].[Surname], " +
+                "[s].[Id] AS StudId, [s].[Group] AS StudGroup, [s].[Name] AS StudName, [s].[ProfessorId] AS ProfId, [s].[Surname] AS StudSurname " +
+                "FROM [Professors] AS [p] " +
+                "LEFT JOIN [Students] AS [s] ON [p].[Id] = [s].[ProfessorId] " +
+                "ORDER BY [p].[Id]";
 
-            var results = await db.QueryAsync<Student>(sqlQuery);
+            var results = await db.QueryAsync<Professor>(sqlQuery);
 
             return results.ToList();
         }

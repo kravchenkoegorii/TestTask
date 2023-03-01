@@ -11,6 +11,6 @@ namespace TestTask.Persistence.Services
     {
         Task<ICollection<Professor>> GetAllUsingEF();
 
-        Task<ICollection<Student>> GetAllUsingDapper();
+        Task<ICollection<Professor>> GetAllUsingDapper();
     }
 }

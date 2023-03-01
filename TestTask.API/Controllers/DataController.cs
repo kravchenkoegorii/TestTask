@@ -42,7 +42,7 @@ namespace TestTask.API.Controllers
             Description = "Return collection of students with professors using Dapper.")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiException), StatusCodes.Status401Unauthorized)]
-        public async Task<ICollection<Student>> GetUsingDapper()
+        public async Task<ICollection<Professor>> GetUsingDapper()
         {
             return await _dataService.GetAllUsingDapper();
         }

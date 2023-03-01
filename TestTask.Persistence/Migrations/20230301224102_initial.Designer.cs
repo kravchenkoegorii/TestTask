@@ -11,7 +11,7 @@ using TestTask.Persistence.Database;
 namespace TestTask.Persistence.Migrations
 {
     [DbContext(typeof(TestTaskDbContext))]
-    [Migration("20230301173803_initial")]
+    [Migration("20230301224102_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -46,7 +46,30 @@ namespace TestTask.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Professors");
+                    b.ToTable("Professors", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Vladimir",
+                            SubjectName = "Math",
+                            Surname = "Surname"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Egor",
+                            SubjectName = "English",
+                            Surname = "Surname"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Igor",
+                            SubjectName = "Geometry",
+                            Surname = "Surname"
+                        });
                 });
 
             modelBuilder.Entity("TestTask.Domain.Models.Student", b =>
@@ -76,7 +99,65 @@ namespace TestTask.Persistence.Migrations
 
                     b.HasIndex("ProfessorId");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Group = "PZ-21-3",
+                            Name = "A",
+                            ProfessorId = 1,
+                            Surname = "A"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Group = "PZ-21-3",
+                            Name = "B",
+                            ProfessorId = 1,
+                            Surname = "B"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Group = "PZ-21-2",
+                            Name = "C",
+                            ProfessorId = 2,
+                            Surname = "C"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Group = "PZ-21-2",
+                            Name = "D",
+                            ProfessorId = 2,
+                            Surname = "D"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Group = "PZ-21-2",
+                            Name = "E",
+                            ProfessorId = 3,
+                            Surname = "E"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Group = "PZ-21-1",
+                            Name = "F",
+                            ProfessorId = 3,
+                            Surname = "F"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Group = "PZ-21-1",
+                            Name = "G",
+                            ProfessorId = 3,
+                            Surname = "G"
+                        });
                 });
 
             modelBuilder.Entity("TestTask.Domain.Models.User", b =>
