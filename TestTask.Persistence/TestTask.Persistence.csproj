@@ -24,4 +24,8 @@
     <ProjectReference Include="..\TestTask.Domain\TestTask.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+  </ItemGroup>
+
 </Project>

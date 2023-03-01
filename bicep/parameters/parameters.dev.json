@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "rgName": {
+        "value": "rg-mytask"
+      },
+      "location": {
+        "value": "North Europe"
+      },
+      "aspName": {
+        "value": "asp-mytask-dev"
+      },
+      "skuPlanName": {
+        "value": "F1"
+      },
+      "appName": {
+        "value": "mytesttask"
+      },
+      "sqlName": {
+        "value": "sqltaskdev"
+      },
+      "sqldbName": {
+        "value": "sql-mytask-dev"
+      },
+      "appiName": {
+        "value": "appi-mytask-dev"
+      }
+    }
+  }

@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+
+name: Azure ARM
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@main
+
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: deploy
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: ${{ secrets.RG_NAME }}
+        template: ./bicep/main.bicep
+        parameters: ./bicep/parameters/parameters.dev.json
+        failOnStdErr: false
