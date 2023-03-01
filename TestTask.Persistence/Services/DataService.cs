@@ -34,7 +34,7 @@ namespace TestTask.Persistence.Services
 
         public async Task<ICollection<Professor>> GetAllUsingDapper()
         {
-            var connString = _configuration.GetValue<string>("ConnectionString");
+            var connString = _configuration.GetSection("Config:ConnectionString").Value;
             using IDbConnection db = new SqlConnection(connString);
 
             var sqlQuery = "SELECT [p].[Id], [p].[Name], [p].[SubjectName], [p].[Surname], " +

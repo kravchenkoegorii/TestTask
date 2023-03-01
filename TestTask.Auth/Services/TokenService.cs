@@ -18,7 +18,7 @@ namespace TestTask.Auth.Services
 
         public TokenService(IConfiguration config)
         {
-            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config.GetValue<string>("JwtSignKey")));
+            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config.GetSection("Config:JwtSignKey").Value));
         }
 
         public string CreateToken(User user)

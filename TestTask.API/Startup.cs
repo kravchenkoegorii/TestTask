@@ -24,7 +24,7 @@ namespace TestTask.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connString = Configuration.GetValue<string>("ConnectionString");
+            var connString = Configuration.GetSection("Config:ConnectionString").Value;
 
             services.AddDbContext<TestTaskDbContext>(opt => opt.UseSqlServer(connString));
 
@@ -40,7 +40,7 @@ namespace TestTask.API
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("JwtSignKey"))),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("Config:JwtSignKey").Value)),
                         ValidateLifetime = true,
                         ValidateIssuer = false,
                         ValidateAudience = false,
