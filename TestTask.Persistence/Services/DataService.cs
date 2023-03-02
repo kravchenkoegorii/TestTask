@@ -37,15 +37,26 @@ namespace TestTask.Persistence.Services
             var connString = _configuration.GetSection("Config:ConnectionString").Value;
             using IDbConnection db = new SqlConnection(connString);
 
-            var sqlQuery = "SELECT [p].[Id], [p].[Name], [p].[SubjectName], [p].[Surname], " +
-                "[s].[Id] AS StudId, [s].[Group] AS StudGroup, [s].[Name] AS StudName, [s].[ProfessorId] AS ProfId, [s].[Surname] AS StudSurname " +
+            var lookup = new Dictionary<int, Professor>();
+
+            var sqlQuery = @"SELECT p.*, s.* " +
                 "FROM [Professors] AS [p] " +
-                "LEFT JOIN [Students] AS [s] ON [p].[Id] = [s].[ProfessorId] " +
-                "ORDER BY [p].[Id]";
+                "LEFT JOIN [Students] AS [s] ON [p].[Id] = [s].[ProfessorId]";
 
-            var results = await db.QueryAsync<Professor>(sqlQuery);
+            db.Query<Professor, Student, Professor>(sqlQuery, (p, s) =>
+            {
+                Professor professor;
+                if (!lookup.TryGetValue(p.Id, out professor))
+                    lookup.Add(p.Id, professor = p);
+                if (professor.Students == null)
+                    professor.Students = new List<Student>();
+                professor.Students.Add(s);
+                return professor;
+            }).AsQueryable();
 
-            return results.ToList();
+            var resultList = lookup.Values;
+
+            return resultList;
         }
     }
 }
