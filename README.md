@@ -24,5 +24,4 @@ The appllication is deployed on Azure Cloud.
 
 ## Online
 
-- Github: https://github.com/kravchenkoegorii/HospitalService.git
-- HospitalService: https://hospitalserviceapi.azurewebsites.net/swagger
+- TestTask: https://mytesttask.azurewebsites.net/swagger/
