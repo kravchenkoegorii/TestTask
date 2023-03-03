@@ -13,6 +13,7 @@ The appllication is deployed on Azure Cloud.
 - **Persistence:**
     - Database: `Azure SQL database`
     - ORM: `Entity Framework Core 7.0.*`
+    - `Dapper`
 - **Authorization:** `JWT Bearer`
 - **Presentation:** API Documentation: `Swagger`
 - **Programming languages:** `C#`
