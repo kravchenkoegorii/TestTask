@@ -15,13 +15,13 @@
         "value": "F1"
       },
       "appName": {
-        "value": "mytesttask"
+        "value": "egoriitask"
       },
       "sqlName": {
-        "value": "sqltaskdev"
+        "value": "sqltask"
       },
       "sqldbName": {
-        "value": "sql-mytask-dev"
+        "value": "sql-mytask-db"
       },
       "appiName": {
         "value": "appi-mytask-dev"
