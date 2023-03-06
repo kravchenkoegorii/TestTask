@@ -25,4 +25,4 @@ The appllication is deployed on Azure Cloud.
 
 ## Online
 
-- TestTask: https://mytesttask.azurewebsites.net/swagger/
+- TestTask: https://egoriitask.azurewebsites.net/swagger/
