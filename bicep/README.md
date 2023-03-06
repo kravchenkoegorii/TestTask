@@ -14,7 +14,7 @@
 - Create resource group: `az deployment sub create --location 'North Europe' \
                                                    --template-file './bicep/rgAzureDeploy.bicep' \
                                                    --parameters "./bicep/parameters/rg-azure-deploy.parameters.dev.json"`
-- Create deployment group: `az deployment group create --resource-group "rg-mango-dev" \
+- Create deployment group: `az deployment group create --resource-group "rg-mytask" \
                                                        --template-file "./bicep/main.bicep" \
                                                        --parameters "./bicep/parameters/parameters.dev.json" \
                                                        adminUser="username" adminPassword="password" 
