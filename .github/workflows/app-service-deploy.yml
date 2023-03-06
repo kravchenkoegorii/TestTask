@@ -12,7 +12,7 @@ env:
   ProjectPath: 'TestTask.API/TestTask.API.csproj'
   BuildPath: 'outputs/src'
   ArtifactName: 'drop'
-  WebAppName: 'mytesttask'
+  WebAppName: 'egoriitask'
 
 jobs:
   build-dotnet:
