@@ -21,7 +21,7 @@ The appllication is deployed on Azure Cloud.
 
 ## Versions
 
-- **.NET SDK:** `.NET 7.0.*`
+- **.NET SDK:** `.NET 7.*.*`
 
 ## Online
 
